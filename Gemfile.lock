@@ -1,0 +1,239 @@
+GIT
+  remote: git://github.com/rails/exception_notification.git
+  revision: 192a49a02d63d28b23ed41cebadfedd490929cf1
+  specs:
+    exception_notification (1.0.0)
+
+GIT
+  remote: git://github.com/ryanb/cancan.git
+  revision: 167d3832fc450288c31c0a50dffff546ec79ef92
+  branch: 2.0
+  specs:
+    cancan (2.0.0.alpha)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    abstract (1.0.0)
+    actionmailer (3.0.10)
+      actionpack (= 3.0.10)
+      mail (~> 2.2.19)
+    actionpack (3.0.10)
+      activemodel (= 3.0.10)
+      activesupport (= 3.0.10)
+      builder (~> 2.1.2)
+      erubis (~> 2.6.6)
+      i18n (~> 0.5.0)
+      rack (~> 1.2.1)
+      rack-mount (~> 0.6.14)
+      rack-test (~> 0.5.7)
+      tzinfo (~> 0.3.23)
+    activemodel (3.0.10)
+      activesupport (= 3.0.10)
+      builder (~> 2.1.2)
+      i18n (~> 0.5.0)
+    activerecord (3.0.10)
+      activemodel (= 3.0.10)
+      activesupport (= 3.0.10)
+      arel (~> 2.0.10)
+      tzinfo (~> 0.3.23)
+    activeresource (3.0.10)
+      activemodel (= 3.0.10)
+      activesupport (= 3.0.10)
+    activesupport (3.0.10)
+    addressable (2.2.7)
+    ancestry (1.2.5)
+      activerecord (>= 2.2.2)
+    arel (2.0.10)
+    builder (2.1.2)
+    capistrano (2.12.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    childprocess (0.3.2)
+      ffi (~> 1.0.6)
+    chronic (0.6.7)
+    coderay (1.0.6)
+    daemons (1.1.8)
+    database_cleaner (0.7.2)
+    diff-lcs (1.1.3)
+    erubis (2.6.6)
+      abstract (>= 1.0.0)
+    eventmachine (0.12.10)
+    factory_girl (3.2.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (3.2.0)
+      factory_girl (~> 3.2.0)
+      railties (>= 3.0.0)
+    fakeweb (1.3.0)
+    faraday (0.8.0)
+      multipart-post (~> 1.1)
+    ffi (1.0.11)
+    guard (1.0.1)
+      ffi (>= 0.5.0)
+      thor (~> 0.14.6)
+    guard-rspec (0.7.0)
+      guard (>= 0.10.0)
+    hashie (1.2.0)
+    heroku (2.25.0)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.1)
+      rest-client (~> 1.6.1)
+      rubyzip
+    highline (1.6.11)
+    httpauth (0.1)
+    i18n (0.5.0)
+    jquery-rails (1.0.19)
+      railties (~> 3.0)
+      thor (~> 0.14)
+    json (1.6.6)
+    launchy (2.1.0)
+      addressable (~> 2.2.6)
+    libwebsocket (0.1.3)
+      addressable
+    mail (2.2.19)
+      activesupport (>= 2.3.6)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.18)
+    multi_json (1.3.2)
+    multipart-post (1.1.5)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.3.0)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    netrc (0.7.1)
+    nifty-generators (0.4.6)
+    nokogiri (1.5.2)
+    oauth2 (0.6.1)
+      faraday (~> 0.7)
+      httpauth (~> 0.1)
+      multi_json (~> 1.3)
+    omniauth (1.1.0)
+      hashie (~> 1.2)
+      rack
+    omniauth-github (1.0.1)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
+    omniauth-oauth2 (1.0.1)
+      oauth2 (~> 0.6.0)
+      omniauth (~> 1.0)
+    paper_trail (2.6.3)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
+    pg (0.13.2)
+    polyglot (0.3.3)
+    rack (1.2.5)
+    rack-mount (0.6.14)
+      rack (>= 1.0.0)
+    rack-test (0.5.7)
+      rack (>= 1.0)
+    rails (3.0.10)
+      actionmailer (= 3.0.10)
+      actionpack (= 3.0.10)
+      activerecord (= 3.0.10)
+      activeresource (= 3.0.10)
+      activesupport (= 3.0.10)
+      bundler (~> 1.0)
+      railties (= 3.0.10)
+    railties (3.0.10)
+      actionpack (= 3.0.10)
+      activesupport (= 3.0.10)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (~> 0.14.4)
+    rake (0.9.2.2)
+    rdoc (3.12)
+      json (~> 1.4)
+    redcarpet (2.1.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    riddle (1.5.1)
+    rspec (2.9.0)
+      rspec-core (~> 2.9.0)
+      rspec-expectations (~> 2.9.0)
+      rspec-mocks (~> 2.9.0)
+    rspec-core (2.9.0)
+    rspec-expectations (2.9.1)
+      diff-lcs (~> 1.1.3)
+    rspec-mocks (2.9.0)
+    rspec-rails (2.9.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec (~> 2.9.0)
+    rubyzip (0.9.8)
+    selenium-webdriver (2.21.2)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0)
+      libwebsocket (~> 0.1.3)
+      multi_json (~> 1.0)
+      rubyzip
+    simplecov (0.6.2)
+      multi_json (~> 1.3)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
+    thin (1.3.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+    thinking-sphinx (2.0.11)
+      activerecord (>= 3.0.3)
+      builder (>= 2.1.2)
+      riddle (>= 1.5.0)
+    thor (0.14.6)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.33)
+    whenever (0.7.3)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
+    will_paginate (3.0.3)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ancestry
+  cancan!
+  capistrano
+  capybara
+  coderay
+  database_cleaner
+  exception_notification!
+  factory_girl_rails
+  fakeweb
+  guard
+  guard-rspec
+  heroku
+  jquery-rails
+  launchy
+  nifty-generators
+  omniauth (>= 0.2.2)
+  omniauth-github
+  paper_trail
+  pg
+  rails (= 3.0.10)
+  redcarpet
+  rspec-rails
+  simplecov
+  thin
+  thinking-sphinx (>= 2.0.1)
+  whenever
+  will_paginate (>= 3.0.pre2)
