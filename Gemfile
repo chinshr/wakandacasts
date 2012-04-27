@@ -37,4 +37,8 @@ group :development do
   gem "capistrano"
 end
 
+group :production do
+  gem "thin"
+end
+
 gem "heroku"
