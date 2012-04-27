@@ -4,12 +4,6 @@ require 'net/http'
 require 'yaml'
 require 'rails/all'
 
-if Rails.env.development?
-  APP_CONFIG = YAML.load(File.read(File.expand_path("../app_config.yml", __FILE__)))
-else
-  APP_CONFIG = YAML.load(File.read(File.expand_path("../../app_config.yml", __FILE__)))
-end
-
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
