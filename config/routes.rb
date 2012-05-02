@@ -1,4 +1,4 @@
-Railscasts::Application.routes.draw do
+Wakandacasts::Application.routes.draw do
   root :to => "episodes#index"
 
   match "auth/:provider/callback" => "users#create"

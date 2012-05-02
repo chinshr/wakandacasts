@@ -11,4 +11,4 @@ task :coverage do
   Launchy.open("file://" + File.expand_path("../coverage/index.html", __FILE__))
 end
 
-Railscasts::Application.load_tasks
+Wakandacasts::Application.load_tasks
