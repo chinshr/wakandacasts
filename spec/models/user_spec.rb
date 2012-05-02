@@ -24,7 +24,7 @@ describe User do
   end
 
   it "generates persistant unsubscribe_token" do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     user.unsubscribe_token.should be_nil
     token = user.generated_unsubscribe_token
     user.reload.unsubscribe_token.should eq(token)
@@ -32,6 +32,6 @@ describe User do
   end
 
   it "uses github name as display name when original is blank" do
-    Factory(:user, :name => "", :github_username => "hank").display_name.should eq("hank")
+    FactoryGirl.create(:user, :name => "", :github_username => "hank").display_name.should eq("hank")
   end
 end

@@ -19,32 +19,32 @@ describe Comment do
 
   it "sorts recent comments in descending order by created_at time" do
     Comment.delete_all
-    c1 = Factory(:comment, :created_at => 2.weeks.ago)
-    c2 = Factory(:comment, :created_at => Time.now)
+    c1 = FactoryGirl.create(:comment, :created_at => 2.weeks.ago)
+    c2 = FactoryGirl.create(:comment, :created_at => Time.now)
     Comment.recent.should eq([c2, c1])
   end
 
   it "notifies owners of all previous commenters except self" do
-    c1 = Factory(:comment)
-    c2a = Factory(:comment, :parent => c1)
-    c2b = Factory(:comment, :parent => c1)
-    c3 = Factory(:comment, :parent => c2a, :user => c2a.user)
+    c1 = FactoryGirl.create(:comment)
+    c2a = FactoryGirl.create(:comment, :parent => c1)
+    c2b = FactoryGirl.create(:comment, :parent => c1)
+    c3 = FactoryGirl.create(:comment, :parent => c2a, :user => c2a.user)
     c3.notify_other_commenters
     email_count.should eq(1)
     last_email.to.should include(c1.user.email)
   end
 
   it "does not notify user when user does not want email" do
-    c1 = Factory(:comment, :user => nil)
-    c2 = Factory(:comment, :parent => c2, :user => Factory(:user, :email_on_reply => false))
-    c3 = Factory(:comment, :parent => c2, :user => Factory(:user, :email => ""))
-    c4 = Factory(:comment, :parent => c3)
+    c1 = FactoryGirl.create(:comment, :user => nil)
+    c2 = FactoryGirl.create(:comment, :parent => c2, :user => FactoryGirl.create(:user, :email_on_reply => false))
+    c3 = FactoryGirl.create(:comment, :parent => c2, :user => FactoryGirl.create(:user, :email => ""))
+    c4 = FactoryGirl.create(:comment, :parent => c3)
     c4.users_to_notify.should eq([])
   end
 
   it "searches by comment site url" do
-    c1 = Factory(:comment, :site_url => "http://example.com")
-    c2 = Factory(:comment, :site_url => "http://example2.com")
+    c1 = FactoryGirl.create(:comment, :site_url => "http://example.com")
+    c2 = FactoryGirl.create(:comment, :site_url => "http://example2.com")
     Comment.search("example.com").should eq([c1])
   end
 end

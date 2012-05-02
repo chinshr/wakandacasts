@@ -1,31 +1,35 @@
-Factory.define :episode do |f|
-  f.name         'Foo Bar'
-  f.description  'Lorem'
-  f.notes        'Ipsum'
-  f.seconds      600
-  f.published_at Time.now
-end
+FactoryGirl.define do
 
-Factory.define :tag do |f|
-  f.name "Bar"
-end
+  factory :episode do
+    name         'Foo Bar'
+    description  'Lorem'
+    notes        'Ipsum'
+    seconds      600
+    published_at Time.now
+  end
 
-Factory.define :comment do |f|
-  f.content  'Hello world.'
-  f.episode { |c| c.association(:episode) }
-  f.user { |c| c.association(:user) }
-end
+  factory :tag do
+    name "Bar"
+  end
 
-Factory.define :user do |f|
-  f.name "Foo Bar"
-  f.sequence(:github_username) { |n| "foo#{n}" }
-  f.sequence(:github_uid) { |n| n }
-  f.sequence(:email) { |n| "foo#{n}@example.com" }
-  f.email_on_reply true
-end
+  factory :comment do
+    content  'Hello world.'
+    episode { |c| c.association(:episode) }
+    user { |c| c.association(:user) }
+  end
 
-Factory.define :feedback_message do |f|
-  f.name "Foo Bar"
-  f.content "Hello World"
-  f.sequence(:email) { |n| "foo#{n}@example.com" }
+  factory :user do
+    name "Foo Bar"
+    sequence(:github_username) { |n| "foo#{n}" }
+    sequence(:github_uid) { |n| n }
+    sequence(:email) { |n| "foo#{n}@example.com" }
+    email_on_reply true
+  end
+
+  factory :feedback_message do
+    name "Foo Bar"
+    content "Hello World"
+    sequence(:email) { |n| "foo#{n}@example.com" }
+  end
+
 end

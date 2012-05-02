@@ -18,7 +18,7 @@ describe "FeedbackMessages request" do
   end
 
   it "includes logged in user email and name" do
-    login Factory(:user, :name => "Foo Test", :email => "footest@example.com")
+    login FactoryGirl.create(:user, :name => "Foo Test", :email => "footest@example.com")
     visit feedback_path
     find_by_id("feedback_message_name").value.should eq("Foo Test")
     find_by_id("feedback_message_email").value.should eq("footest@example.com")

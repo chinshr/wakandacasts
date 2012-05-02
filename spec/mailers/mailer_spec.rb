@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Mailer do
   describe "feedback" do
-    let(:message) { Factory(:feedback_message) }
+    let(:message) { FactoryGirl.create(:feedback_message) }
     let(:mail) { Mailer.feedback(message) }
 
     it "includes message with name and email" do
@@ -14,8 +14,8 @@ describe Mailer do
   end
 
   describe "comment_response" do
-    let(:user) { Factory(:user) }
-    let(:comment) { Factory(:comment) }
+    let(:user) { FactoryGirl.create(:user) }
+    let(:comment) { FactoryGirl.create(:comment) }
     let(:mail) { Mailer.comment_response(comment, user) }
 
     it "includes comment content and link to comment page" do

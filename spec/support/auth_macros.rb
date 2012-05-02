@@ -1,6 +1,6 @@
 module AuthMacros
   def login(user = nil)
-    user ||= Factory(:user)
+    user ||= FactoryGirl.create(:user)
     OmniAuth.config.add_mock(:github, "uid" => user.github_uid)
     visit login_path
     @_current_user = user

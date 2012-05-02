@@ -42,7 +42,7 @@ describe "Ability" do
 
   describe "as normal user" do
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
       @ability = Ability.new(@user)
     end
 
@@ -58,11 +58,11 @@ describe "Ability" do
 
     it "can create comments and update/destroy within 15 minutes if he owns them" do
       @ability.should be_able_to(:create, :comments)
-      @ability.should be_able_to(:update, Factory(:comment, :user => @user, :created_at => 10.minutes.ago))
-      @ability.should_not be_able_to(:update, Factory(:comment, :user => @user, :created_at => 20.minutes.ago))
-      @ability.should be_able_to(:destroy, Factory(:comment, :user => @user, :created_at => 10.minutes.ago))
-      @ability.should_not be_able_to(:destroy, Factory(:comment, :user => @user, :created_at => 20.minutes.ago))
-      @ability.should_not be_able_to(:destroy, Factory(:comment, :user => User.new, :created_at => 10.minutes.ago))
+      @ability.should be_able_to(:update, FactoryGirl.create(:comment, :user => @user, :created_at => 10.minutes.ago))
+      @ability.should_not be_able_to(:update, FactoryGirl.create(:comment, :user => @user, :created_at => 20.minutes.ago))
+      @ability.should be_able_to(:destroy, FactoryGirl.create(:comment, :user => @user, :created_at => 10.minutes.ago))
+      @ability.should_not be_able_to(:destroy, FactoryGirl.create(:comment, :user => @user, :created_at => 20.minutes.ago))
+      @ability.should_not be_able_to(:destroy, FactoryGirl.create(:comment, :user => User.new, :created_at => 10.minutes.ago))
     end
 
     it "can create feedback messages" do
@@ -85,7 +85,7 @@ describe "Ability" do
 
   describe "as banned user" do
     before(:each) do
-      @user = Factory(:user, :banned_at => Time.now)
+      @user = FactoryGirl.create(:user, :banned_at => Time.now)
       @ability = Ability.new(@user)
     end
 
@@ -97,7 +97,7 @@ describe "Ability" do
 
   describe "as moderator" do
     before(:each) do
-      @user = Factory(:user, :moderator => true)
+      @user = FactoryGirl.create(:user, :moderator => true)
       @ability = Ability.new(@user)
     end
 
@@ -110,8 +110,8 @@ describe "Ability" do
     end
 
     it "can list, update and destroy any comments" do
-      @ability.should be_able_to(:update, Factory(:comment, :user => User.new, :created_at => 20.minutes.ago))
-      @ability.should be_able_to(:destroy, Factory(:comment, :user => User.new, :created_at => 20.minutes.ago))
+      @ability.should be_able_to(:update, FactoryGirl.create(:comment, :user => User.new, :created_at => 20.minutes.ago))
+      @ability.should be_able_to(:destroy, FactoryGirl.create(:comment, :user => User.new, :created_at => 20.minutes.ago))
       @ability.should be_able_to(:index, :comments)
     end
 
@@ -130,7 +130,7 @@ describe "Ability" do
 
   describe "as admin" do
     it "can access all" do
-      user = Factory(:user, :admin => true)
+      user = FactoryGirl.create(:user, :admin => true)
       ability = Ability.new(user)
       ability.should be_able_to(:access, :all)
     end

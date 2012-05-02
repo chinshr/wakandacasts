@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Users request" do
   it "shows profile" do
-    user = Factory(:user, :name => "Jack Sparrow", :github_username => "jsparrow")
+    user = FactoryGirl.create(:user, :name => "Jack Sparrow", :github_username => "jsparrow")
     visit user_path(user)
     page.should have_content(user.name)
     page.should have_content(user.github_username)
@@ -10,7 +10,7 @@ describe "Users request" do
   end
 
   it "edits current user" do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     login user
     visit user_path(user)
     page.should have_content("This is your profile.")
@@ -24,7 +24,7 @@ describe "Users request" do
   end
 
   it "logs out current user" do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     login user
     visit logout_path
     visit user_path(user)
@@ -32,7 +32,7 @@ describe "Users request" do
   end
 
   it "logs in existing user and redirects to return_to parameter" do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     OmniAuth.config.add_mock(:github, "uid" => user.github_uid)
     visit login_path(:return_to => user_path(user))
     page.should have_content("This is your profile.")
@@ -48,10 +48,10 @@ describe "Users request" do
   end
 
   it "bans user as moderator" do
-    user = Factory(:user, :moderator => true)
+    user = FactoryGirl.create(:user, :moderator => true)
     login user
-    bad_user = Factory(:user)
-    comment = Factory(:comment, :user => bad_user)
+    bad_user = FactoryGirl.create(:user)
+    comment = FactoryGirl.create(:comment, :user => bad_user)
     visit episode_path(comment.episode, :view => "comments")
     click_on "Ban User"
     bad_user.reload.should be_banned
@@ -59,7 +59,7 @@ describe "Users request" do
   end
 
   it "unsubscribe a user from comment replies" do
-    user = Factory(:user)
+    user = FactoryGirl.create(:user)
     visit unsubscribe_path(user.generated_unsubscribe_token)
     page.should have_content("unsubscribed")
     user.reload.email_on_reply.should be_false
