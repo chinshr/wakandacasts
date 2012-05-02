@@ -21,7 +21,7 @@ FactoryGirl.define do
   factory :user do
     name "Foo Bar"
     sequence(:github_username) { |n| "foo#{n}" }
-    sequence(:github_uid) { |n| n }
+    sequence(:github_uid) { |n| "#{n}" }
     sequence(:email) { |n| "foo#{n}@example.com" }
     email_on_reply true
   end
