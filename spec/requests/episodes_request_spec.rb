@@ -41,7 +41,7 @@ describe "Episodes request" do
   end
 
   it "filters by tag" do
-    Factory(:episode, :name => "Blast from the Past", :tags => [Factory.build(:tag, :name => "Oldtimes")])
+    Factory(:episode, :name => "Blast from the Past", :tags => [FactoryGirl.build(:tag, :name => "Oldtimes")])
     Factory(:episode, :name => "Back to the Future")
     visit episodes_path
     click_on "Oldtimes"

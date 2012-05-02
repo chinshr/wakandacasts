@@ -10,7 +10,7 @@ describe Comment do
   end
 
   it "sets request based attributes" do
-    comment = Factory.build(:comment, :site_url => 'example.com')
+    comment = FactoryGirl.build(:comment, :site_url => 'example.com')
     comment.request = OpenStruct.new(:remote_ip => 'ip', :env => { 'HTTP_USER_AGENT' => 'agent', 'HTTP_REFERER' => 'referrer' })
     comment.user_ip.should eq('ip')
     comment.user_agent.should eq('agent')

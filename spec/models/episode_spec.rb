@@ -110,7 +110,7 @@ describe Episode do
 
   it "returns nil as file size when response is not 200" do
     FakeWeb.register_uri(:head, "http://example.com/foo", :content_length => "123", :status => ["404", "Not Found"])
-    episode = Factory.build(:episode)
+    episode = FactoryGirl.build(:episode)
     episode.fetch_file_size("http://example.com/foo").should eq(nil)
   end
 
